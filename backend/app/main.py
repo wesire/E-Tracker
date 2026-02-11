@@ -56,14 +56,27 @@ async def health():
     return {"status": "healthy"}
 
 
-# Import and include routers (will be added in later phases)
-# from app.api import indicators, series, observations, insights, analytics, alerts, watchlist, notifications, countries
-# app.include_router(indicators.router, prefix="/api", tags=["indicators"])
-# app.include_router(series.router, prefix="/api", tags=["series"])
-# app.include_router(observations.router, prefix="/api", tags=["observations"])
-# app.include_router(insights.router, prefix="/api", tags=["insights"])
-# app.include_router(analytics.router, prefix="/api", tags=["analytics"])
-# app.include_router(alerts.router, prefix="/api", tags=["alerts"])
-# app.include_router(watchlist.router, prefix="/api", tags=["watchlist"])
-# app.include_router(notifications.router, prefix="/api", tags=["notifications"])
-# app.include_router(countries.router, prefix="/api", tags=["countries"])
+# Import and include routers
+from app.api import (
+    alerts,
+    analytics,
+    countries,
+    indicators,
+    insights,
+    notifications,
+    observations,
+    series,
+    status,
+    watchlist,
+)
+
+app.include_router(countries.router, prefix="/api", tags=["countries"])
+app.include_router(indicators.router, prefix="/api", tags=["indicators"])
+app.include_router(series.router, prefix="/api", tags=["series"])
+app.include_router(observations.router, prefix="/api", tags=["observations"])
+app.include_router(insights.router, prefix="/api", tags=["insights"])
+app.include_router(analytics.router, prefix="/api", tags=["analytics"])
+app.include_router(alerts.router, prefix="/api", tags=["alerts"])
+app.include_router(watchlist.router, prefix="/api", tags=["watchlist"])
+app.include_router(notifications.router, prefix="/api", tags=["notifications"])
+app.include_router(status.router, prefix="/api", tags=["status"])
